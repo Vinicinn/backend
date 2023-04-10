@@ -7,10 +7,12 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", function (req, res) {
+  console.log('get');
   res.send(reader());
 });
 
 app.post("/", (req, res) => {
+  console.log('post');
   const { id, name } = req.body;
   let data = reader();
   let array = JSON.parse(data);
@@ -22,6 +24,7 @@ app.post("/", (req, res) => {
 });
 
 app.delete("/", (req, res) => {
+  console.log('delete');
   const { id } = req.query;
   let data = reader();
   let array = JSON.parse(data);
